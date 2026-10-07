@@ -21,14 +21,14 @@ Run the Flask backend on port 5000 in another terminal. In local development REA
 | Variable | Value |
 |---|---|
 | REACT_APP_API_URL | Production https://api.buildtheory.dev; empty for local development proxy |
-| REACT_APP_CONTACT_EMAIL | Blank until a real enabled mailbox exists |
+| REACT_APP_CONTACT_EMAIL | Public contact defaults to kush@buildtheory.dev; set this variable to use another address |
 | REACT_APP_FOUNDER_NAME | Optional verified founder name |
 | REACT_APP_FOUNDER_BIO | Optional verified bio; founder section requires name and bio |
 | REACT_APP_FOUNDER_LINKEDIN | Optional HTTPS profile |
 | REACT_APP_FOUNDER_GITHUB | Optional HTTPS profile |
 | REACT_APP_ANALYTICS_ENABLED | Default off; true emits named DOM events only, no tracker or destination |
 
-Do not set any model key or backend secret in frontend environment variables. `src/config.js` centralizes the product configuration. Contact and founder sections omit themselves when unconfigured. Early-access availability comes from the backend, not a fake frontend success state.
+Do not set any model key or backend secret in frontend environment variables. `src/config.js` centralizes the product configuration. Contact uses the owner-approved kush@buildtheory.dev mailbox. Founder sections omit themselves when unconfigured. Early-access availability comes from the backend, not a fake frontend success state.
 
 ## Validation and production build
 

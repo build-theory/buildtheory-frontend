@@ -3,7 +3,7 @@ export const config = {
   tagline: 'Agentic AI for insurance operations.',
   description: 'Turn complex claim documents into reviewable case intelligence.',
   companyStatus: 'In development · Preparing for private beta',
-  contactEmail: process.env.REACT_APP_CONTACT_EMAIL || '',
+  contactEmail: process.env.REACT_APP_CONTACT_EMAIL || 'kush@buildtheory.dev',
   founder: { name: process.env.REACT_APP_FOUNDER_NAME || '', bio: process.env.REACT_APP_FOUNDER_BIO || '', linkedin: process.env.REACT_APP_FOUNDER_LINKEDIN || '', github: process.env.REACT_APP_FOUNDER_GITHUB || '' },
   analyticsEnabled: process.env.REACT_APP_ANALYTICS_ENABLED === 'true',
   apiUrl: (process.env.REACT_APP_API_URL || '').replace(/\/$/, '')
