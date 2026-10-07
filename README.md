@@ -57,3 +57,9 @@ Events: homepage_view, try_beta_clicked, sample_claim_started, claim_analysis_st
 Prior UI/components are retained under legacy/ for historical reference and excluded from the build. Original patient browsing and browser inference were replaced with the secure backend case API. Local directories use BuildTheory names; existing Git remotes were preserved. Rename GitHub repositories/descriptions manually when desired; suggested description: “BuildTheory — assistive insurance document intelligence with specialized model tasks and human review.”
 
 Full implementation and verification report: [docs/HANDOFF.md](docs/HANDOFF.md).
+
+## Claim preparation and investigation
+
+The workspace supports a policyholder pre-submission perspective and an insurer investigation perspective over the same case evidence. Deterministic checks compare billed medicines against prescriptions, aggregate billed quantities against extracted prescription quantities, check bill totals and identify tests missing orders or submitted reports. These are limited review leads: extraction errors, units, substitutions, refills and additional documents require human verification. A flag does not establish fraud or guarantee claim acceptance.
+
+The synthetic sample has three prescribed medicines, five billed medicines, 20 tablets billed against 10 prescribed, and an MRI charge without a submitted matching report. Public chat is a disclosed fixed replay; live chat uses the configured provider and original PDFs. Source highlighting requires searchable text. Optional OCR returns text but does not currently produce coordinate-grounded highlights for scanned pages. Combined document context must fit the selected provider's limits, and each live question consumes model API usage.

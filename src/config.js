@@ -1,7 +1,7 @@
 export const config = {
   brandName: 'BuildTheory', domain: 'https://buildtheory.dev',
   tagline: 'Agentic AI for insurance operations.',
-  description: 'Turn complex claim documents into reviewable case intelligence.',
+  description: 'AI checks before claim submission, discrepancy investigation for insurers, and document chat with page-linked evidence.',
   companyStatus: 'In development · Preparing for private beta',
   contactEmail: process.env.REACT_APP_CONTACT_EMAIL || 'kush@buildtheory.dev',
   founder: { name: process.env.REACT_APP_FOUNDER_NAME || '', bio: process.env.REACT_APP_FOUNDER_BIO || '', linkedin: process.env.REACT_APP_FOUNDER_LINKEDIN || '', github: process.env.REACT_APP_FOUNDER_GITHUB || '' },

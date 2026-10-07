@@ -6,7 +6,7 @@ The original React/CRA interface used simulated account access, document uploads
 
 ## Major changes
 
-The existing specialists and consistency checks now serve an integrated BuildTheory website and case workspace. Public routes are `/`, `/product`, `/technology`, `/about`, `/contact`, `/privacy`, `/terms`; `/app` is the actual MVP. React is retained, with Vite replacing obsolete CRA tooling. Marketing pages are prerendered from the same components; the workspace loads separately. Branding, configuration, metadata, sitemap, accessibility styles and optional analytics events are centralized. Founder and email content is omitted until configured.
+The existing specialists and consistency checks now serve an integrated BuildTheory website and case workspace. Public routes are `/`, `/product`, `/technology`, `/about`, `/contact`, `/privacy`, `/terms`; `/app` is the actual MVP. React is retained, with Vite replacing obsolete CRA tooling. Marketing pages are prerendered from the same components; the workspace loads separately. Branding, configuration, metadata, sitemap, accessibility styles and optional analytics events are centralized. Founder content is omitted until configured; the owner-authorized contact is kush@buildtheory.dev.
 
 The Flask API adds session-owned cases, shared beta access, CSRF, bounded jobs, SQLite storage, PDF validation, progress, source downloads, case questions and deletion. A public synthetic replay requires no model account. A gated live sample sends the same five synthetic PDFs through real extraction and synthesis. Replay is explicitly disclosed and is not a live AI demonstration. Early-access submissions are validated and stored only when enabled; production requires an explicit persistent-storage acknowledgement.
 
@@ -52,7 +52,7 @@ Visit `http://127.0.0.1:3000`. Leave the frontend API variable blank locally to 
 ## Verification
 
 - Frontend: dependency installation, ESLint, 2 tests and production build passed. Six marketing pages prerendered. Dependency audit reported zero known vulnerabilities at verification time.
-- Backend: dependency installation, dependency consistency, Python compilation and 12 tests passed. Gunicorn startup and actual API health passed.
+- Backend: dependency installation, dependency consistency, Python compilation and 14 tests passed. Gunicorn startup and actual API health passed.
 - Browser: all seven routes checked at 375, 768, 1280, 1440 and 1920 px with no horizontal overflow. Sample completed via the actual API, rendered review flags/sources, downloaded a synthetic policy PDF and returned a disclosed replay question response. Invalid login, navigation and keyboard focus were checked. No browser console warnings/errors were observed in the final browser check.
 - Provider calls and live upload orchestration were tested with mocks; actual Claude/Google/OCR requests require fresh credentials and were **not** executed. Docker build was **not** executed successfully because the local daemon was unavailable. The tested Python runtime was 3.14; the Docker image specifies 3.12. Library deprecation warnings remain. No standalone TypeScript check applies to this JavaScript project.
 
@@ -78,3 +78,7 @@ See `DEPLOYMENT.md` for exact dashboard settings, persistence, DNS and email set
 ## Claims requiring verification before publishing
 
 Verify the chosen deployed provider/model, enabled upload/OCR features, storage/retention and processor arrangements against the privacy page. Confirm any founder biography, mailbox and links you add. Recheck free-platform terms when deploying. Pages deliberately make no customer, partnership, funding, incorporation, certification, accuracy, external legal retrieval or autonomous claim-decision claims. Outputs require human review and are not legal advice.
+
+## Expanded claim workflow (October 8)
+
+The public positioning now explains lengthy document handoffs between policyholders, hospitals and insurers, and two review perspectives. The implementation adds medicine/prescription comparisons, quantity differences, missing test support, and original-PDF chat with recent conversation context. Cited source pages can be opened and text highlighted only when found in the PDF. This is not evidence of fraud or verified model accuracy. The sample now demonstrates five billed versus three prescribed medicines. Live questions remain credential-dependent; provider execution is tested with mocks. Frontend lint, two tests and production build pass; backend fourteen tests pass, including authenticated source access, actual PDF highlighting and original-document chat plumbing. Scanned coordinate highlights are not implemented.
