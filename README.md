@@ -4,7 +4,7 @@ Agentic AI for insurance operations. This React application integrates a public 
 
 ## Routes
 
-`/` homepage · `/product` real capabilities · `/technology` architecture · `/about` approach and optional founder · `/privacy` data handling · `/terms` beta use · `/app` actual case workspace.
+`/` homepage · `/product` real capabilities · `/technology` architecture · `/about` approach and optional founder · `/contact` contact options · `/privacy` data handling · `/terms` beta use · `/app` actual case workspace.
 
 ## Setup (Node 22.12+; Node 24 recommended)
 
@@ -38,7 +38,7 @@ npm test
 npm run build
 ```
 
-JavaScript project: no standalone TypeScript typecheck exists; lint/tests and production compilation are the relevant checks. The postbuild script prerenders the six marketing routes from the same React components for crawlable content and per-page metadata. The workspace is lazy-loaded. No remote fonts, third-party brand logos or default trackers are used. Reduced-motion support, labels, keyboard focus, skip link and responsive navigation are included.
+JavaScript project: no standalone TypeScript typecheck exists; lint/tests and production compilation are the relevant checks. The postbuild script prerenders the seven marketing routes from the same React components for crawlable content and per-page metadata. The workspace is lazy-loaded. No remote fonts, third-party brand logos or default trackers are used. Reduced-motion support, labels, keyboard focus, skip link and responsive navigation are included.
 
 ## Free deployment
 

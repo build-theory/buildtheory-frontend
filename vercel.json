@@ -4,6 +4,10 @@
   "outputDirectory": "build",
   "rewrites": [
     {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
       "source": "/product",
       "destination": "/product/index.html"
     },

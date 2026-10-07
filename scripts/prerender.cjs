@@ -22,7 +22,7 @@ const {renderToString} = require('react-dom/server');
 const {MemoryRouter} = require('react-router-dom');
 const {Layout} = require('../src/App.jsx');
 const template = fs.readFileSync(path.join(root,'build/index.html'),'utf8');
-const pages={ '/':['Agentic AI for insurance operations','BuildTheory connects insurance document facts with specialized AI extraction and consistency checks for human review.'], '/product':['Claim document intelligence','Explore the BuildTheory workflow for policies, bills, discharge summaries, prescriptions and test reports.'], '/technology':['Technology & architecture','Specialized document agents, provider-backed extraction, deterministic checks and human review.'], '/about':['About BuildTheory','BuildTheory is in development and preparing for private beta, starting with insurance case documents.'], '/privacy':['Privacy','How the BuildTheory beta processes documents, external model calls, session cookies and case storage.'], '/terms':['Beta terms','Assistive use, human review responsibilities and availability limits for the BuildTheory beta.'] };
+const pages={ '/contact':['Contact','Contact BuildTheory about insurance workflows, technical collaboration and early access.'], '/':['Agentic AI for insurance operations','BuildTheory connects insurance document facts with specialized AI extraction and consistency checks for human review.'], '/product':['Claim document intelligence','Explore the BuildTheory workflow for policies, bills, discharge summaries, prescriptions and test reports.'], '/technology':['Technology & architecture','Specialized document agents, provider-backed extraction, deterministic checks and human review.'], '/about':['About BuildTheory','BuildTheory is in development and preparing for private beta, starting with insurance case documents.'], '/privacy':['Privacy','How the BuildTheory beta processes documents, external model calls, session cookies and case storage.'], '/terms':['Beta terms','Assistive use, human review responsibilities and availability limits for the BuildTheory beta.'] };
 for (const [route,[title,description]] of Object.entries(pages)) {
  const content=renderToString(React.createElement(MemoryRouter,{initialEntries:[route]},React.createElement(Layout)));
  let html=template.replace('<div id="root"></div>',`<div id="root">${content}</div>`)
@@ -36,4 +36,4 @@ for (const [route,[title,description]] of Object.entries(pages)) {
  .replace(/(<meta name="twitter:description" content=")[^"]*/,`$1${description}`);
  const directory=path.join(root,'build',route.slice(1));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'index.html'),html);
 }
-console.log('Prerendered six marketing routes from React.');
+console.log('Prerendered seven marketing routes from React.');

@@ -6,7 +6,7 @@ The original React/CRA interface used simulated account access, document uploads
 
 ## Major changes
 
-The existing specialists and consistency checks now serve an integrated BuildTheory website and case workspace. Public routes are `/`, `/product`, `/technology`, `/about`, `/privacy`, `/terms`; `/app` is the actual MVP. React is retained, with Vite replacing obsolete CRA tooling. Marketing pages are prerendered from the same components; the workspace loads separately. Branding, configuration, metadata, sitemap, accessibility styles and optional analytics events are centralized. Founder and email content is omitted until configured.
+The existing specialists and consistency checks now serve an integrated BuildTheory website and case workspace. Public routes are `/`, `/product`, `/technology`, `/about`, `/contact`, `/privacy`, `/terms`; `/app` is the actual MVP. React is retained, with Vite replacing obsolete CRA tooling. Marketing pages are prerendered from the same components; the workspace loads separately. Branding, configuration, metadata, sitemap, accessibility styles and optional analytics events are centralized. Founder and email content is omitted until configured.
 
 The Flask API adds session-owned cases, shared beta access, CSRF, bounded jobs, SQLite storage, PDF validation, progress, source downloads, case questions and deletion. A public synthetic replay requires no model account. A gated live sample sends the same five synthetic PDFs through real extraction and synthesis. Replay is explicitly disclosed and is not a live AI demonstration. Early-access submissions are validated and stored only when enabled; production requires an explicit persistent-storage acknowledgement.
 
