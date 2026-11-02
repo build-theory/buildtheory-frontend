@@ -36,4 +36,6 @@ for (const [route,[title,description]] of Object.entries(pages)) {
  .replace(/(<meta name="twitter:description" content=")[^"]*/,`$1${description}`);
  const directory=path.join(root,'build',route.slice(1));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'index.html'),html);
 }
+fs.mkdirSync(path.join(root, 'build/chat'), { recursive: true });
+fs.writeFileSync(path.join(root, 'build/chat/index.html'), template);
 console.log('Prerendered seven marketing routes from React.');
