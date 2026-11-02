@@ -3,6 +3,7 @@ import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-
 import { config, api, track } from './config';
 import './App.css';
 const Workspace = lazy(() => import('./Workspace'));
+const Chat = lazy(() => import('./Chat'));
 const titles = { '/':'Agentic AI for insurance operations', '/product':'Pre-submission checks & claim investigation', '/technology':'Technology & architecture', '/about':'About', '/contact':'Contact', '/privacy':'Privacy', '/terms':'Beta terms', '/app':'Case workspace' };
 function Metadata() {
  const { pathname } = useLocation();
@@ -27,6 +28,7 @@ export function Layout(){
  const [open,setOpen] = useState(false);
  const location = useLocation();
  useEffect(()=>setOpen(false),[location]);
+ if (location.pathname === '/chat') return <Suspense fallback={null}><Chat/></Suspense>;
  return <><Metadata/><a className="skip" href="#main">Skip to content</a><header><Link className="brand" to="/"><Mark/>{config.brandName}</Link><button className="menu" aria-expanded={open} aria-controls="navigation" onClick={()=>setOpen(!open)}>Menu</button><nav id="navigation" className={open?'open':''}><NavLink to="/product">Product</NavLink><NavLink to="/technology">Technology</NavLink><NavLink to="/about">About</NavLink><NavLink to="/contact">Contact</NavLink><Link className="button small" to="/app" onClick={()=>track('try_beta_clicked')}>Open workspace <span aria-hidden="true">↗</span></Link></nav></header>
  <main id="main"><Suspense fallback={<div className="page">Loading workspace…</div>}><Routes><Route path="/" element={<Home/>}/><Route path="/product" element={<Product/>}/><Route path="/technology" element={<Technology/>}/><Route path="/about" element={<About/>}/><Route path="/contact" element={<Contact/>}/><Route path="/privacy" element={<Privacy/>}/><Route path="/terms" element={<Terms/>}/><Route path="/app" element={<Workspace/>}/><Route path="*" element={<div className="page"><h1>Page not found.</h1><Link to="/">Return home</Link></div>}/></Routes></Suspense></main>
  <footer><div><Link className="brand" to="/"><Mark/>BuildTheory</Link><p>Evidence first. Human judgment always.</p><small>{config.companyStatus}</small></div><div className="footer-links"><Link to="/product">Product</Link><Link to="/technology">Technology</Link><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/contact">Contact</Link></div><small>© {new Date().getFullYear()} BuildTheory</small></footer></>;
