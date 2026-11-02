@@ -50,3 +50,5 @@
 .chat-auth p, .chat-auth .chat-wordmark span { color:#555; }
 .chat-auth input { color:#111; background:transparent; border-color:#aaa; }
 .chat-image-preview button { color:var(--chat-text); background:var(--chat-line); }
+
+.chat-settings textarea { display:block; width:100%; box-sizing:border-box; margin-top:6px; padding:10px; min-height:90px; resize:vertical; border:1px solid var(--chat-line); border-radius:9px; background:transparent; color:var(--chat-text); font-size:14px; }
