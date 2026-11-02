@@ -72,3 +72,9 @@
 .chat-shell[data-theme="dark"] .hljs-number, .chat-shell[data-theme="dark"] .hljs-built_in, .chat-shell[data-theme="dark"] .hljs-type { color:#9dc2ff; }
 .chat-shell[data-theme="dark"] .hljs-title, .chat-shell[data-theme="dark"] .hljs-function { color:#ead18b; }
 .chat-shell[data-theme="dark"] .hljs-comment { color:#aaa; }
+
+/* Collapse the controls to a small menu button above the conversation. */
+.chat-shell { position:relative; }
+.chat-shell[data-menu-open="false"] .chat-head { position:absolute!important; z-index:2; top:0; left:0; width:auto; height:auto; min-height:0; padding:6px!important; }
+.chat-shell[data-menu-open="false"] .chat-messages { padding-top:46px; }
+.chat-shell .chat-menu-toggle { flex:none; font-size:17px; }
