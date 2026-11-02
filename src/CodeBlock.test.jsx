@@ -10,6 +10,7 @@ describe('code responses', () => {
     Object.defineProperty(navigator, 'clipboard', {value:{writeText:copy}, configurable:true});
     const {container} = render(<ReactMarkdown components={{pre:CodeBlock}}>{'```python\ndef hello():\n    return "hello"\n```'}</ReactMarkdown>);
     expect(container.querySelector('.hljs-keyword').textContent).toBe('def');
+    expect(container.querySelector('.chat-code-block').style.getPropertyValue('--chat-indent-step')).toBe('4ch');
     expect(container.querySelectorAll('.chat-code-line')[1].querySelector('.chat-code-guides').style.width).toBe('4ch');
     fireEvent.click(screen.getByRole('button', {name:'Copy code'}));
     await waitFor(() => expect(copy).toHaveBeenCalledWith('def hello():\n    return "hello"'));
@@ -17,5 +18,6 @@ describe('code responses', () => {
   it('renders unknown languages as plain text', () => {
     const {container} = render(<ReactMarkdown components={{pre:CodeBlock}}>{'```mystery\n  plain text\n```'}</ReactMarkdown>);
     expect(container.querySelector('code').textContent).toContain('  plain text');
+    expect(container.querySelector('.chat-code-block').style.getPropertyValue('--chat-indent-step')).toBe('2ch');
   });
 });

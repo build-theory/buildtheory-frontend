@@ -61,7 +61,7 @@
 .chat-markdown .chat-code-block pre { border:0; border-radius:0; margin:0; padding:10px; overflow:hidden; white-space:pre-wrap; overflow-wrap:anywhere; tab-size:4; }
 .chat-markdown .chat-code-block code { display:block; font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; }
 .chat-code-line { display:block; position:relative; min-height:1.5em; }
-.chat-code-guides { position:absolute; left:0; top:0; bottom:0; pointer-events:none; background:repeating-linear-gradient(to right, var(--chat-line) 0 1px, transparent 1px 2ch); opacity:.55; }
+.chat-code-guides { position:absolute; left:0; top:0; bottom:0; pointer-events:none; background:repeating-linear-gradient(to right, var(--chat-line) 0 1px, transparent 1px var(--chat-indent-step, 4ch)); opacity:.55; }
 .chat-code-line .hljs-keyword, .chat-code-line .hljs-selector-tag, .chat-code-line .hljs-literal { color:#8537a2; }
 .chat-code-line .hljs-string, .chat-code-line .hljs-regexp, .chat-code-line .hljs-attr { color:#a33d2c; }
 .chat-code-line .hljs-number, .chat-code-line .hljs-built_in, .chat-code-line .hljs-type { color:#245db6; }
