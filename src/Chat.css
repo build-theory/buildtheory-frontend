@@ -79,7 +79,9 @@
 .chat-shell[data-menu-open="false"] .chat-messages { padding-top:46px; }
 .chat-shell .chat-menu-toggle { flex:none; font-size:17px; }
 
-/* Keep the composer compact. */
+/* Keep the composer compact while accommodating pasted screenshots. */
+.chat-image-previews { display:flex; gap:10px; overflow-x:auto; padding:6px 18px 8px; }
+.chat-image-previews .chat-image-preview { flex:none; margin:0; }
 .chat-shell .chat-composer { padding:4px 6px; }
 .chat-shell .chat-composer textarea { min-height:32px; height:32px; padding:5px 7px; line-height:22px; }
 .chat-shell .chat-composer button { padding:5px 11px; }
