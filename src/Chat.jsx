@@ -21,7 +21,7 @@ export default function Chat() {
   const [model, setModel] = useState('gpt-6.1-sol'), [key, setKey] = useState(''), [notice, setNotice] = useState('');
   const [conversations, setConversations] = useState([]), [conversation, setConversation] = useState(null);
   const [systemPrompt, setSystemPrompt] = useState(''), [messageLimit, setMessageLimit] = useState(25), [settingsNotice, setSettingsNotice] = useState('');
-  const [theme, setTheme] = useState(() => localStorage.getItem('buildtheory-chat-theme') || 'light');
+  const [theme, setTheme] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   const [menuOpen, setMenuOpen] = useState(() => localStorage.getItem('buildtheory-chat-menu') !== 'closed');
   const end = useRef(null);
   const [image, setImage] = useState(null);
@@ -38,7 +38,8 @@ export default function Chat() {
   async function openConversation(id) { try { const history = await call('/messages?conversation_id='+id); setConversation(id); setMessages(history.messages); setError(''); setNotice(''); setSettings(false); } catch(e) { setError(e.message); } }
   async function newConversation() { if (busy) return; try { const result = await call('/conversations',{method:'POST'}); setConversations(c=>[result.id,...c]); setConversation(result.id); setMessages([]); setText(''); setImage(null); setSettings(false); setError(''); setNotice(''); } catch(e) {setError(e.message);} }
   function toggleMenu() { const next = !menuOpen; setMenuOpen(next); localStorage.setItem('buildtheory-chat-menu', next ? 'open' : 'closed'); if (!next) setSettings(false); }
-  function toggleTheme() { const next = theme === 'light' ? 'dark' : 'light'; setTheme(next); localStorage.setItem('buildtheory-chat-theme', next); }
+  function toggleTheme() { const next = theme === 'light' ? 'dark' : 'light'; setTheme(next); }
+  useEffect(() => { const media = window.matchMedia('(prefers-color-scheme: dark)'); const update = event => setTheme(event.matches ? 'dark' : 'light'); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   useEffect(() => { refresh().catch(() => {}).finally(() => setLoading(false)); }, []);
   useEffect(() => { end.current?.scrollIntoView?.({behavior:'smooth'}); }, [messages, busy]);
   async function login(e) { e.preventDefault(); setError(''); setBusy(true); try { await call('/login',{method:'POST', body:JSON.stringify({email,password})}); setPassword(''); await refresh(); } catch(e) {setError(e.message);} finally {setBusy(false);} }

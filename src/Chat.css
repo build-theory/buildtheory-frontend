@@ -78,3 +78,8 @@
 .chat-shell[data-menu-open="false"] .chat-head { position:absolute!important; z-index:2; top:0; left:0; width:auto; height:auto; min-height:0; padding:6px!important; }
 .chat-shell[data-menu-open="false"] .chat-messages { padding-top:46px; }
 .chat-shell .chat-menu-toggle { flex:none; font-size:17px; }
+
+/* Keep the composer compact. */
+.chat-shell .chat-composer { padding:4px 6px; }
+.chat-shell .chat-composer textarea { min-height:32px; height:32px; padding:5px 7px; line-height:22px; }
+.chat-shell .chat-composer button { padding:5px 11px; }
